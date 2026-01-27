@@ -188,8 +188,8 @@ def run_epoch(train, data_loader, model, criterion, optimizer, n_epoch, args, de
             loss.backward()
             optimizer.step()
 
-        if (n_batch % 10) == 0:
-            print('[{}]  epoch {}/{},  batch {}/{},  loss_{}={:.5f},  acc_{}={:.2f}%'.format('train' if train else ' val ', n_epoch + 1, args.epochs, n_batch + 1, batch_count, "train" if train else "val", loss_item, "train" if train else "val", 100.0 * acc))
+        #if (n_batch % 10) == 0:
+         #   print('[{}]  epoch {}/{},  batch {}/{},  loss_{}={:.5f},  acc_{}={:.2f}%'.format('train' if train else ' val ', n_epoch + 1, args.epochs, n_batch + 1, batch_count, "train" if train else "val", loss_item, "train" if train else "val", 100.0 * acc))
 
     return (sum(losses) / len(losses), sum(accs) / len(accs))
 
@@ -215,7 +215,7 @@ def main():
         if not os.path.exists(pathout):
             os.makedirs(pathout)
         # get model
-        model = build_mobilenet_v1(120, width_multiplier=1.0, cifar=False)
+        model = build_mobilenet_v1(120, width_multiplier=1.0, cifar=False,pool_types=['avg', 'std'])
         model = model.to(device)
 
         print(model)
