@@ -96,7 +96,7 @@ class SpatialGate_new1(nn.Module):
 
     def forward(self, in_tensor):
         x_gate_s = self.gate_s( in_tensor )
-        return x_gate_s
+        return torch.sigmoid(x_gate_s)
 
 class BAM(nn.Module):
     def __init__(self, gate_channels, reduction_ratio=16, pool_types=None, no_spatial=False,activation='relu',excite_activation="sigmoid"):
