@@ -98,7 +98,7 @@ class SpatialGate_new1(nn.Module):
         x_gate_s = self.gate_s( in_tensor )
         return x_gate_s
 
-class BAMC(nn.Module):
+class BAM(nn.Module):
     def __init__(self, gate_channels, reduction_ratio=16, pool_types=None, no_spatial=False,activation='relu',excite_activation="sigmoid"):
         super(BAM, self).__init__()
         self.ChannelGate = ChannelGate(gate_channels, reduction_ratio, pool_types,activation=activation,excite_activation=excite_activation)
