@@ -106,7 +106,7 @@ class BAM(nn.Module):
         if not no_spatial:
             self.SpatialGate = SpatialGate_new1(gate_channels)
     def forward(self, x):
-         x_out = self.ChannelGate(x)
+        x_out = self.ChannelGate(x)
         if not self.no_spatial:
             x_out = self.SpatialGate(x_out)
         return x_out
