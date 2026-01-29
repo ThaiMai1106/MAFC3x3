@@ -94,7 +94,7 @@ class SpatialGate_new1(nn.Module):
         self.gate_s.add_module('gate_s_relu0',nn.ReLU())
         self.gate_s.add_module('gate_s_conv_reduce', nn.Conv2d(cout, 1, kernel_size=1))
 
-    def forward(self, in_tensor):
+    def forward(self, x):
         att = torch.sigmoid(self.gate_s(x))  
         return x * att
 
